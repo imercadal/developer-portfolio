@@ -15,6 +15,7 @@ export const projects: Project[] = [
     description:
       "A brand website built for Andina Latin America (Coca-Cola). Browse the live demo video to see the interface in action.",
     tags: ["React", "CSS modules", "Framer Motion"],
+    liveUrl: "https://propositokoandina.com/",
     repoUrl: "https://github.com/cbahamondesd/FrontAndina",
     videoSrc: "/Video_proyecto_Andina.mov",
   },
@@ -28,10 +29,10 @@ export const projects: Project[] = [
     vimeoUrl: "https://vimeo.com/1169187015?fl=ip&fe=ec",
   },
   {
-    title: "Carwash App (prototype)",
+    title: "Carwash Management App (prototype)",
     description:
-      "A description of your third project goes here. Describe what makes it interesting and what you learned.",
-    tags: ["MERN", "Material UI", "CI/CD"],
+      "Full-Stack MERN application for managing a carwash business. Features include orders registering and tracking, client management, and updating services. The app is designed to help staff members streamline operations. Developed in collaboration with Claudia Bahamondes",
+    tags: ["MERN", "Material UI", "JWT Authentication", "Responsive Design"],
     repoUrl: "https://github.com/cbahamondesd/carwash",
     vimeoUrl: "https://vimeo.com/1169173162?fl=ip&fe=ec",
   },
@@ -40,6 +41,7 @@ export const projects: Project[] = [
     description:
       "Landing page for a juice store with a rotating exhibition of Latin American artists. Built with Next.js and TailwindCSS, featuring a headless CMS (Sanity.io) for easy content management. The site includes a menu page, basic info, a blog, and a list of the artists featured at the store.",
     tags: ["Next.js", "React", "TailwindCSS", "Headless CMS","Sanity.io"],
+    liveUrl: "https://juguitosfrescos.com",
     repoUrl: "https://github.com/pgriott/juguitos",
     vimeoUrl: "https://vimeo.com/1169690307?share=copy&fl=sv&fe=ci",
   }

@@ -3,10 +3,17 @@ const skills = [
   "React",
   "Next.js",
   "Node.js",
-  "PostgreSQL",
   "Docker",
   "Tailwind CSS",
   "REST APIs",
+  "Sanity CMS",
+  "Git",
+  "AWS",
+  "Axios",
+  "Vercel",
+  "Material UI",
+  "Framer Motion",
+
 ];
 
 export default function About() {

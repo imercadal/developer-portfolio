@@ -59,7 +59,7 @@ export default function ProjectCard({
         {description}
       </p>
 
-      <ul aria-label="Technologies used" className="flex flex-wrap gap-2">
+      <ul aria-label="Technologies used" className="flex justify-center flex-wrap gap-2">
         {tags.map((tag) => (
           <li
             key={tag}
@@ -71,7 +71,7 @@ export default function ProjectCard({
       </ul>
 
       {(liveUrl || repoUrl) && (
-        <div className="mt-auto flex gap-3 pt-2">
+        <div className="mt-auto flex justify-around gap-3 pt-2">
           {liveUrl && (
             <a
               href={liveUrl}
