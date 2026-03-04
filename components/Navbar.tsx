@@ -25,7 +25,7 @@ export default function Navbar() {
     <header
       ref={headerRef}
       role="banner"
-      className="fixed inset-x-0 top-0 z-50 border-b border-[rgba(255,255,255,0.04)] bg-[hsla(0,0%,41%,0)] backdrop-blur-sm"
+      className={`fixed inset-x-0 top-0 z-50 border-b border-[rgba(255,255,255,0.04)] bg-[hsla(0,0%,41%,0)] ${titleVisible ? "backdrop-blur-sm" : ""} transition-colors duration-500`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Logo — only visible after scrolling past the header */}
@@ -45,7 +45,7 @@ export default function Navbar() {
               <li key={href}>
                 <a
                   href={href}
-                  className="text-sm text-[rgba(250,250,250,0.55)] transition-colors hover:text-[#fafafa]"
+                  className="text-sm text-muted transition-colors hover:text-[#fafafa]"
                 >
                   {label}
                 </a>
@@ -99,7 +99,7 @@ export default function Navbar() {
                 <li key={href}>
                   <a
                     href={href}
-                    className="block px-5 py-3 text-sm text-[rgba(250,250,250,0.55)] transition-colors hover:text-[#fafafa]"
+                    className="block px-5 py-3 text-sm text-muted transition-colors hover:text-[#fafafa]"
                   >
                     {label}
                   </a>

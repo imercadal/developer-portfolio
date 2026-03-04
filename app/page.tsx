@@ -37,7 +37,7 @@ export default function Home() {
 
       <footer
         aria-label="Site footer"
-        className="border-t border-[rgba(255,255,255,0.08)] py-8 text-center text-sm text-[rgba(250,250,250,0.55)]"
+        className="border-t border-[rgba(255,255,255,0.08)] py-8 text-center text-sm text-muted"
       >
         <p>© 2026 by Irene Mercadal.</p>
       </footer>

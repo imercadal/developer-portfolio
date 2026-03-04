@@ -26,14 +26,14 @@ export default function About() {
       <div className="rounded-xl border border-[rgba(255,255,255,0.08)] bg-[rgba(43,59,67,0.1)] backdrop-blur-sm p-8 md:p-12">
         <h2 className="mb-6 text-3xl font-bold text-[#fafafa]">About Me</h2>
 
-        <p className="mb-8 max-w-2xl leading-relaxed text-[rgba(250,250,250,0.55)]">
+        <p className="mb-8 max-w-2xl leading-relaxed text-muted">
           I&apos;m a developer who loves turning complex problems into clean,
           user-friendly solutions. With a background in both front-end and
           back-end development, I enjoy owning features end-to-end and
           collaborating with teams to ship products people actually want to use.
         </p>
 
-        <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-[rgba(250,250,250,0.55)]">
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-muted">
           Technologies
         </h3>
 
