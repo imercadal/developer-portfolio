@@ -1,3 +1,6 @@
+"use client";
+import { motion } from "framer-motion";
+
 const skills = [
   "TypeScript",
   "React",
@@ -15,6 +18,16 @@ const skills = [
   "Framer Motion",
 
 ];
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.05 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+};
 
 export default function About() {
   return (
@@ -37,16 +50,24 @@ export default function About() {
           Technologies
         </h3>
 
-        <ul aria-label="Technical skills" className="flex flex-wrap gap-2">
+        <motion.ul
+          aria-label="Technical skills"
+          className="flex flex-wrap gap-2"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {skills.map((skill) => (
-            <li
+            <motion.li
               key={skill}
+              variants={itemVariants}
               className="rounded-full border border-[rgba(255,255,255,0.08)] px-4 py-1.5 text-sm text-[#fafafa]"
             >
               {skill}
-            </li>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </div>
     </section>
   );

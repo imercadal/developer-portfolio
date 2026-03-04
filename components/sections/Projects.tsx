@@ -1,5 +1,17 @@
+"use client";
+import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 
 export default function Projects() {
   return (
@@ -10,11 +22,19 @@ export default function Projects() {
     >
       <h2 className="mb-12 text-3xl font-bold text-[#fafafa]">Projects</h2>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <motion.div
+        className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         {projects.map((project) => (
-          <ProjectCard key={project.title} {...project} />
+          <motion.div key={project.title} variants={itemVariants}>
+            <ProjectCard {...project} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -5,7 +5,7 @@ export default function Hero() {
       aria-label="Introduction"
       className="flex min-h-screen items-center justify-center pt-20"
     >
-      <div className="mx-auto max-w-4xl px-6 py-24 text-center">
+      <div id="herocontent" className="mx-auto max-w-4xl px-6 py-24 text-center">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-muted">
           Full-Stack Developer
         </p>

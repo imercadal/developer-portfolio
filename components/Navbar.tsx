@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { motion, useMotionValue, useScroll, useTransform } from "framer-motion";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -10,36 +11,49 @@ const navLinks = [
 
 export default function Navbar() {
   const headerRef = useRef<HTMLElement>(null);
+  const mobileMenuRef = useRef<HTMLDetailsElement>(null);
   const [titleVisible, setTitleVisible] = useState(false);
+  const scrollRangeRef = useRef<[number, number]>([0, 200]);
+  const { scrollY } = useScroll();
+  const logoOpacity = useMotionValue(0);
+  const backdropBlur = useTransform(logoOpacity, [0, 1], ["blur(0px)", "blur(8px)"]);
 
-  useEffect(() => {
-    const onScroll = () => {
-      const threshold = headerRef.current?.offsetHeight ?? 64;
-      setTitleVisible(window.scrollY > threshold);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+  useLayoutEffect(() => {
+    const heroTitle = document.querySelector<HTMLElement>("#hero h1");
+    const heroContent = document.querySelector<HTMLElement>("#herocontent");
+    if (heroTitle && heroContent) {
+      const top = heroTitle.offsetTop;
+      scrollRangeRef.current = [top, top + heroContent.offsetHeight];
+    }
   }, []);
 
+  useEffect(() => {
+    return scrollY.on("change", (y) => {
+      const [start, end] = scrollRangeRef.current;
+      logoOpacity.set(Math.max(0, Math.min(1, (y - start) / (end - start))));
+      setTitleVisible(y > start);
+    });
+  }, [scrollY, logoOpacity]);
+
   return (
-    <header
+    <motion.header
       ref={headerRef}
       role="banner"
-      className={`fixed inset-x-0 top-0 z-50 border-b border-[rgba(255,255,255,0.04)] bg-[hsla(0,0%,41%,0)] ${titleVisible ? "backdrop-blur-sm" : ""} transition-colors duration-500`}
+      style={{ backdropFilter: backdropBlur }}
+      className="fixed inset-x-0 top-0 z-50 border-b border-[rgba(255,255,255,0.04)] bg-[hsla(0,0%,41%,0)]"
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        {/* Logo — only visible after scrolling past the header */}
-        <a
+        {/* Logo — fades in as hero title scrolls out of view */}
+        <motion.a
           href="#hero"
-          className={`text-lg font-semibold tracking-wide text-[#fafafa] transition-opacity duration-1000 ${
-            titleVisible ? "opacity-100" : "pointer-events-none opacity-0"
-          }`}
+          style={{ opacity: logoOpacity }}
+          className={`text-lg font-semibold tracking-wide text-[#fafafa]${titleVisible ? "" : " pointer-events-none"}`}
         >
           Irene Mercadal
-        </a>
+        </motion.a>
 
         {/* Desktop nav */}
-        <nav aria-label="Primary navigation" className="hidden md:block">
+        <nav aria-label="Primary navigation" className="ml-auto hidden md:block">
           <ul className="flex gap-8">
             {navLinks.map(({ href, label }) => (
               <li key={href}>
@@ -55,7 +69,7 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile nav — CSS-only details/summary */}
-        <details className="group relative md:hidden">
+        <details ref={mobileMenuRef} className="group relative ml-auto md:hidden">
           <summary className="list-none cursor-pointer p-1" aria-label="Toggle navigation menu">
             {/* Hamburger icon */}
             <svg
@@ -99,6 +113,7 @@ export default function Navbar() {
                 <li key={href}>
                   <a
                     href={href}
+                    onClick={() => { if (mobileMenuRef.current) mobileMenuRef.current.open = false; }}
                     className="block px-5 py-3 text-sm text-muted transition-colors hover:text-[#fafafa]"
                   >
                     {label}
@@ -109,6 +124,6 @@ export default function Navbar() {
           </nav>
         </details>
       </div>
-    </header>
+    </motion.header>
   );
 }

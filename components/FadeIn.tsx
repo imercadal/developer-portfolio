@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 export default function FadeIn({
   children,
@@ -8,27 +8,15 @@ export default function FadeIn({
   children: React.ReactNode;
   className?: string;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add("visible");
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "-30% 0px -30% 0px", threshold: 0 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div ref={ref} className={`fade-in${className ? ` ${className}` : ""}`}>
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-26%" }}
+      transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 }
