@@ -42,7 +42,7 @@ export const projects: Project[] = [
       "Landing page for a juice store with a rotating exhibition of Latin American artists. Built with Next.js and TailwindCSS, featuring a headless CMS (Sanity.io) for easy content management. The site includes a menu page, basic info, a blog, and a list of the artists featured at the store.",
     tags: ["Next.js", "React", "TailwindCSS", "Headless CMS","Sanity.io"],
     liveUrl: "https://juguitosfrescos.com",
-    repoUrl: "https://github.com/pgriott/juguitos",
+    repoUrl: "https://github.com/imercadal/juguitosfrescos",
     vimeoUrl: "https://vimeo.com/1169690307?share=copy&fl=sv&fe=ci",
   }
 ];
