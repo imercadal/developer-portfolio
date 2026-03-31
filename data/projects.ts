@@ -10,6 +10,15 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+    {
+    title: "Juice Store \"Juguitos Frescos\" with CMS",
+    description:
+      "Landing page for a juice store with a rotating exhibition of Latin American artists. Built with Next.js and TailwindCSS, featuring a headless CMS (Sanity.io) for easy content management. The site includes a menu page, basic info, a blog, and a list of the artists featured at the store.",
+    tags: ["Next.js", "React", "TailwindCSS", "Headless CMS", "Sanity.io", "Analytics (Umami)", "CI/CD (GitHub Actions)"],
+    liveUrl: "https://juguitosfrescos.com",
+    repoUrl: "https://github.com/imercadal/juguitosfrescos",
+    vimeoUrl: "https://vimeo.com/1169690307?share=copy&fl=sv&fe=ci",
+  },
   {
     title: "Animated Landing Andina",
     description:
@@ -36,13 +45,5 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/cbahamondesd/carwash",
     vimeoUrl: "https://vimeo.com/1169173162?fl=ip&fe=ec",
   },
-  {
-    title: "Juice Store \"Juguitos Frescos\" with CMS",
-    description:
-      "Landing page for a juice store with a rotating exhibition of Latin American artists. Built with Next.js and TailwindCSS, featuring a headless CMS (Sanity.io) for easy content management. The site includes a menu page, basic info, a blog, and a list of the artists featured at the store.",
-    tags: ["Next.js", "React", "TailwindCSS", "Headless CMS","Sanity.io"],
-    liveUrl: "https://juguitosfrescos.com",
-    repoUrl: "https://github.com/imercadal/juguitosfrescos",
-    vimeoUrl: "https://vimeo.com/1169690307?share=copy&fl=sv&fe=ci",
-  }
+
 ];
