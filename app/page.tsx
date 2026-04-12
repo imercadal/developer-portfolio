@@ -31,7 +31,7 @@ export default function Home() {
 
       <main id="main-content" aria-label="Portfolio content">
         <Hero />
-        <FadeIn><About /></FadeIn>
+        <About />
         <FadeIn><Projects /></FadeIn>
         <FadeIn><Contact /></FadeIn>
       </main>
