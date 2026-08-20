@@ -61,9 +61,7 @@ export default function About() {
         </motion.h2>
 
         <motion.p variants={fadeUp} className="mb-2 max-w-2xl leading-relaxed text-muted">
-          I&apos;m a junior full-stack developer who loves turning complex problems into clean,
-          user-friendly solutions. After working as a freelance on various projects for the past two years, I&apos;m looking to transition into a full-time role. I enjoy owning features end-to-end and
-          collaborating with teams to ship products people actually want to use.
+          I&apos;m a full-stack developer who loves turning complex problems into clean, user-friendly solutions. I bring my background of freelance creative work in video producing, storytelling and design, to help folks go from an idea to a product that works and connects with the people it&apos;s for. I thrive in multidisciplinary projects that call for collaboration and both technical and creative skills.
         </motion.p>
         <motion.p variants={fadeUp} className="mb-8 max-w-2xl leading-relaxed text-muted">
           Currently based in Brooklyn, NY. Open to opportunities in Chile (Central or South), New York, and remote.
